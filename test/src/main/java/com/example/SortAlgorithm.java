@@ -21,5 +21,32 @@ public class SortAlgorithm {
         }
         return a;
     }
+    public void QuickSort(int[] a,int low, int high){
+        if (low>=high)
+            return;
+        int i = low;
+        int j = high;
+        int x = a[low];
+        while (i<j){
+            if (i<j){
+                while (a[j]>x)
+                    j--;
+                int temp=a[j];
+                a[j]=a[i];
+                a[i]=temp;
+                i++;
+            }
+            if (i<j){
+                while (a[i]<x)
+                    i++;
+                int temp=a[j];
+                a[j] = a[i];
+                a[i] = temp;
+                j--;
+            }
+        }
+        QuickSort(a,low,i-1);
+        QuickSort(a,j+1,high);
+    }
 
 }
